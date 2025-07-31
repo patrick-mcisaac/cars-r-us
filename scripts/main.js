@@ -1,8 +1,17 @@
+import { Paints } from "./Paints.js"
+import { Interior } from "./Interiors.js"
+import { Wheels } from "./Wheels.js"
+import { Technologies } from "./Technologies.js"
 
 const header = document.getElementById('header')
 const container = document.getElementById('container')
 
-const render = () => {
+const render = async () => {
+    const paintsHTML = await Paints()
+    const interiorHTML = await Interior()
+    const wheelsHTML = await Wheels()
+    const techHTML = await Technologies()
+
     header.innerHTML = `<h1>Cars 'R Us: Personal </h1>`
 
     container.innerHTML = `
@@ -10,18 +19,22 @@ const render = () => {
 
         <article>
             <h2>Paints</h2>
+            ${paintsHTML}
         </article>
 
         <article>
             <h2>Interior</h2>
+            ${interiorHTML}
         </article>
 
         <article>
             <h2>Wheels</h2>
+            ${wheelsHTML}
         </article>
 
         <article>
             <h2>Technologies</h2>
+            ${techHTML}
         </article>
 
     </section>
@@ -33,3 +46,5 @@ const render = () => {
 
     `
 }
+
+render()
