@@ -2,6 +2,8 @@ import { Paints } from "./Paints.js"
 import { Interior } from "./Interiors.js"
 import { Wheels } from "./Wheels.js"
 import { Technologies } from "./Technologies.js"
+import { PlaceOrder } from "./PlaceOrderButton.js"
+import { Orders } from "./OrdersSection.js"
 
 const header = document.getElementById('header')
 const container = document.getElementById('container')
@@ -11,6 +13,8 @@ const render = async () => {
     const interiorHTML = await Interior()
     const wheelsHTML = await Wheels()
     const techHTML = await Technologies()
+    const orderBtnHTML = PlaceOrder()
+    const ordersHTML = await Orders()
 
     header.innerHTML = `<h1>Cars 'R Us: Personal </h1>`
 
@@ -37,14 +41,18 @@ const render = async () => {
             ${techHTML}
         </article>
 
+        ${orderBtnHTML}
+
     </section>
 
     <section>
         <h2>Custom Car Orders</h2>
-        
+        ${ordersHTML}
     </section>
 
     `
 }
 
 render()
+
+document.addEventListener('newOrder', render())
