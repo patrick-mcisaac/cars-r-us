@@ -19,7 +19,7 @@ const render = async () => {
     header.innerHTML = `<h1>Cars 'R Us: Personal </h1>`
 
     container.innerHTML = `
-    <section>
+    <section class='option-section'>
 
         <article>
             <h2>Paints</h2>
@@ -41,11 +41,13 @@ const render = async () => {
             ${techHTML}
         </article>
 
-        ${orderBtnHTML}
+        <article class='button-article'>
+            ${orderBtnHTML}
+        </article>
 
     </section>
 
-    <section>
+    <section class='custom-orders-section'>
         <h2>Custom Car Orders</h2>
         ${ordersHTML}
     </section>

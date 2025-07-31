@@ -6,6 +6,119 @@
     box-sizing: border-box;
 }
 
+:root {
+    --light-blue: #BDE0FE;
+    --blue: #A2D2FF;
+    --dark-pink: #FFAFCC;
+    --light-pink: #FFC8DD;
+    --purple: #CDB4DB;
+}
+
 html {
     font-size: 62.5%;
 }
+
+body {
+    padding: 5rem;
+    max-width: 100vw;
+    background-color: rgba(133, 199, 221, 0.068);
+}
+
+/* HEADER */
+header {
+    display: flex;
+    padding: 2rem;
+}
+
+h1 {
+    font-size: 6rem;
+}
+
+h2 {
+    font-size: 3rem;
+}
+
+/* Main */
+
+main {
+    display: grid;
+    grid-template-areas:
+    'options'
+    'orders';
+    margin: 5rem 0;
+}
+
+.option-section {
+    grid-area: options;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 10rem;
+    flex-wrap: wrap;
+}
+
+.option-section article {
+    display: flex;
+    flex-direction: column;
+    flex-basis: 30rem;
+    flex-grow: 0;
+    flex-shrink: 1;
+    padding: 4rem 3rem;
+    border: 1px solid black;
+    gap: 2.5rem;
+    border-radius: 1.3rem;
+    background: linear-gradient(137deg, white 26%, var(--light-blue), var(--light-pink));
+}
+
+/* DROPDOWNS */
+
+select {
+    padding: .5rem;
+    font-size: 1.6rem;
+    cursor: pointer;
+    border-radius: 1rem;
+}
+
+article.button-article {
+    border: none;
+    padding: 0;
+    display: flex;
+    flex: 0 0 100%;
+    justify-content: center;
+    align-items: center;
+    background: none;
+
+}
+
+/* BUTTON */
+button {
+    font-size: 2rem;
+    padding: 1rem 2rem;
+    border-radius: 1rem;
+    cursor: pointer;
+    background-color: var(--purple);
+    border: 1px solid var(--blue);
+    box-shadow: inset 0px 0px 5px 4px var(--blue);
+    color: rgb(57 32 32);
+}
+
+.custom-orders-section {
+    grid-area: orders;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: stretch;
+    gap: 4rem;
+    margin: 5rem 0 0 0;
+}
+
+p {
+    font-size: 1.6rem;
+}
+
+.custom-orders-section article {
+    border: 1px dotted var(--purple);
+    padding: 3rem 1.5rem;
+    background-color: rgba(126, 126, 221, 0.1);
+}
+

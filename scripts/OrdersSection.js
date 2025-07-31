@@ -12,7 +12,7 @@ export const Orders = async () => {
 
         return `
         <article>
-            <p>Order #${order.id} cost ${priceToUSD}</p>
+            <p>${order.paintColor.color} car with ${order.wheel.name} wheels, ${order.interior.name} interior, and the ${order.technology.name} for a total of ${priceToUSD}</p>
         </article>
         `
     }).join('')

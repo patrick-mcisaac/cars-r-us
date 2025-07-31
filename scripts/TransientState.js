@@ -32,6 +32,8 @@ export const updateState = async () => {
             body: JSON.stringify(transientState)
         })
 
+    }else {
+        window.alert('Select All Options')
     }
     // reset transient state
     transientState.paintColorId = 0
