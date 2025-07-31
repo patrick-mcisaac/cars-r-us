@@ -1,0 +1,31 @@
+Table "Paint Colors" {
+    id int [pk]
+    color varchar
+    price int
+}
+
+Table Interior {
+    id int [pk]
+    name varchar
+    price int
+}
+
+Table Technologies {
+    id int [pk]
+    name varchar
+    price int
+}
+
+Table Wheels {
+    id int [pk]
+    name varchar
+    price int
+}
+
+Table Orders {
+    id int [pk]
+    paintColorId int [ref: > "Paint Colors".id]
+    interiorId int [ref: > Interior.id]
+    technologyId int [ref: > Technologies.id]
+    wheelId int [ref: > Wheels.id]
+}
