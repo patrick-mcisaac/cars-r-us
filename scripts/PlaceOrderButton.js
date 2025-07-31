@@ -11,8 +11,8 @@ export const PlaceOrder = () => {
 const eventHandler = (e) => {
     if(e.target.id === 'place-order'){
         updateState()
+        
+        const myEvent = new CustomEvent('newOrder')
+        document.dispatchEvent(myEvent)
     }
-
-    const customEvent = new CustomEvent('newOrder')
-    document.dispatchEvent(customEvent)
 }

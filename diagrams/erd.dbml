@@ -24,7 +24,7 @@ Table Wheels {
 
 Table Orders {
     id int [pk]
-    paintcolorId int [ref: > "Paint Colors".id]
+    paintColorId int [ref: > "Paint Colors".id]
     interiorId int [ref: > Interior.id]
     technologyId int [ref: > Technologies.id]
     wheelId int [ref: > Wheels.id]

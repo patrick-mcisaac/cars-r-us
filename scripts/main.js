@@ -55,4 +55,4 @@ const render = async () => {
 
 render()
 
-document.addEventListener('newOrder', render())
+document.addEventListener('newOrder', render)

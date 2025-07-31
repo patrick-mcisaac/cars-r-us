@@ -1,7 +1,7 @@
-import { setpaintcolor } from "./TransientState.js"
+import { setPaintColor } from "./TransientState.js"
 
 export const Paints = async () => {
-    const response = await fetch('http://localhost:8088/paintcolors')
+    const response = await fetch('http://localhost:8088/paintColors')
     const paints = await response.json()
 
     document.addEventListener('change', eventHandler)
@@ -26,6 +26,6 @@ export const Paints = async () => {
 
 const eventHandler = (e) => {
     if(e.target.id === 'paint-options'){
-        setpaintcolor(parseInt(e.target.value))
+        setPaintColor(parseInt(e.target.value))
     }
 }
