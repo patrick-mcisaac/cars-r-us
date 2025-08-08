@@ -5,6 +5,9 @@ import { Technologies } from "./Technologies.js"
 import { PlaceOrder } from "./PlaceOrderButton.js"
 import { Orders } from "./OrdersSection.js"
 import { CarType } from "./CarType.js"
+import { getOrdersData } from "./TransientState.js"
+
+getOrdersData()
 
 const header = document.getElementById("header")
 const container = document.getElementById("container")
