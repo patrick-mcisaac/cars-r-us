@@ -5,6 +5,7 @@ participant Paints
 participant Interior
 participant Wheels
 participant Technologies
+participant CarType
 participant PlaceOrderButton
 participant OrdersSection
 participant TransientState
@@ -34,6 +35,9 @@ API -->> Technologies: here is the data
 Note over Technologies: maps data to html and returns string
 Technologies -->> Main: here is the HTML
 
+Main ->> CarType: give me buttons html
+CarType -->> Main: here are the buttons html
+
 
 Main ->> PlaceOrderButton: give me button html
 PlaceOrderButton -->> Main: here is the button html
@@ -62,6 +66,10 @@ User ->> Technologies: clicks a technologies choice
 Technologies ->> TransientState: set the technologies to my choice
 TransientState -->> Technologies: ok I set technologies to your choice
 
+User ->> CarType: clicks a CarType choice
+CarType ->> OrdersSection: set the CarType to my choice
+OrdersSection -->> CarType: ok I set CarType to your choice
+
 User ->> PlaceOrderButton: clicks place order
 PlaceOrderButton ->> TransientState: update the database with users choices
 TransientState ->> API: send post request with user data
@@ -70,6 +78,8 @@ Note over TransientState: reset all choices
 TransientState -->> PlaceOrderButton: ok, data sent to api
 PlaceOrderButton ->> Main: here is a custom event telling you to render again
 Note over Main: I hear the event...re render()
+
+
 
 
 

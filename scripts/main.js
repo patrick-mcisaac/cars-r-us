@@ -4,6 +4,7 @@ import { Wheels } from "./Wheels.js"
 import { Technologies } from "./Technologies.js"
 import { PlaceOrder } from "./PlaceOrderButton.js"
 import { Orders } from "./OrdersSection.js"
+import { CarType } from "./CarType.js"
 
 const header = document.getElementById("header")
 const container = document.getElementById("container")
@@ -13,6 +14,7 @@ const render = async () => {
 	const interiorHTML = await Interior()
 	const wheelsHTML = await Wheels()
 	const techHTML = await Technologies()
+	const carTypeHTML = CarType()
 	const orderBtnHTML = PlaceOrder()
 	const ordersHTML = await Orders()
 
@@ -42,6 +44,7 @@ const render = async () => {
         </article>
 
         <article class='button-article'>
+            ${carTypeHTML}
             ${orderBtnHTML}
         </article>
 
