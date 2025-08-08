@@ -1,0 +1,88 @@
+sequenceDiagram
+participant User
+participant Main
+participant Paints
+participant Interior
+participant Wheels
+participant Technologies
+participant CarType
+participant PlaceOrderButton
+participant OrdersSection
+participant TransientState
+participant API
+
+Main ->> Paints: give me paints html
+Paints ->> API: fetch paint colors from json server
+API -->> Paints: here is the paint colors
+Note over Paints: maps paint array and returns html string
+Paints -->> Main: Here is paints html
+
+Main ->> Interior: give me interior html
+Interior ->> API: fetch interior data from JSON server
+API -->> Interior: here is the data
+Note over Interior: maps data to html and returns string
+Interior -->> Main: here is the HTML
+
+Main ->> Wheels: give me wheels html
+Wheels ->> API: fetch wheels data from JSON server
+API -->> Wheels: here is the data
+Note over Wheels: maps data to html and returns string
+Wheels -->> Main: here is the HTML
+
+Main ->> Technologies: give me technologies html
+Technologies ->> API: fetch technologies data from JSON server
+API -->> Technologies: here is the data
+Note over Technologies: maps data to html and returns string
+Technologies -->> Main: here is the HTML
+
+Main ->> CarType: give me buttons html
+CarType -->> Main: here are the buttons html
+
+
+Main ->> PlaceOrderButton: give me button html
+PlaceOrderButton -->> Main: here is the button html
+
+Main ->> OrdersSection: give me orders html
+OrdersSection ->> API: fetch orders data from JSON server
+API -->> OrdersSection: here is the data
+Note over OrdersSection: maps data to html and returns string
+OrdersSection -->> Main: here is the HTML
+
+Note over Main: render html
+
+User ->> Paints: clicks a paint choice
+Paints ->> TransientState: set the paint color to my choice
+TransientState -->> Paints: ok I set paint color to your choice
+
+User ->> Interior: clicks a interior choice
+Interior ->> TransientState: set the interior to my choice
+TransientState -->> Interior: ok I set interior to your choice
+
+User ->> Wheels: clicks a wheels choice
+Wheels ->> TransientState: set the wheels to my choice
+TransientState -->> Wheels: ok I set wheels to your choice
+
+User ->> Technologies: clicks a technologies choice
+Technologies ->> TransientState: set the technologies to my choice
+TransientState -->> Technologies: ok I set technologies to your choice
+
+User ->> CarType: clicks a CarType choice
+CarType ->> OrdersSection: set the CarType to my choice
+OrdersSection -->> CarType: ok I set CarType to your choice
+
+User ->> PlaceOrderButton: clicks place order
+PlaceOrderButton ->> TransientState: update the database with users choices
+TransientState ->> API: send post request with user data
+API -->> TransientState: got the new data
+Note over TransientState: reset all choices
+TransientState -->> PlaceOrderButton: ok, data sent to api
+PlaceOrderButton ->> Main: here is a custom event telling you to render again
+Note over Main: I hear the event...re render()
+
+
+
+
+
+
+
+
