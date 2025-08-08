@@ -17,7 +17,6 @@ const render = async () => {
 	const interiorHTML = await Interior()
 	const wheelsHTML = await Wheels()
 	const techHTML = await Technologies()
-	const carTypeHTML = CarType()
 	const orderBtnHTML = PlaceOrder()
 	const ordersHTML = await Orders()
 
@@ -47,7 +46,6 @@ const render = async () => {
         </article>
 
         <article class='button-article'>
-            ${carTypeHTML}
             ${orderBtnHTML}
         </article>
 
