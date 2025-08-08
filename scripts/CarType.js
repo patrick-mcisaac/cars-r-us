@@ -1,4 +1,4 @@
-import { setCarType } from "./OrdersSection.js"
+import { setCarId } from "./TransientState.js"
 
 export const CarType = () => {
 	document.addEventListener("change", eventHandler)
@@ -10,11 +10,11 @@ export const CarType = () => {
             Car
         </label>
         <label>
-            <input type='radio' name='carType' value='1.5'>
+            <input type='radio' name='carType' value='2'>
             Suv
         </label>
         <label>
-            <input type='radio' name='carType' value='2.25'>
+            <input type='radio' name='carType' value='3'>
             Truck
         </label>
     </form>
@@ -24,6 +24,7 @@ export const CarType = () => {
 const eventHandler = e => {
 	if (e.target.name === "carType") {
 		const value = e.target.value
-		setCarType(parseFloat(value))
+		// change function and import to transientState.js
+		setCarId(parseInt(value))
 	}
 }
