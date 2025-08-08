@@ -67,8 +67,8 @@ Technologies ->> TransientState: set the technologies to my choice
 TransientState -->> Technologies: ok I set technologies to your choice
 
 User ->> CarType: clicks a CarType choice
-CarType ->> OrdersSection: set the CarType to my choice
-OrdersSection -->> CarType: ok I set CarType to your choice
+CarType ->> TransientState: set the carTypeId to my choice
+TransientState -->> CarType: ok I set carTypeId to your choice
 
 User ->> PlaceOrderButton: clicks place order
 PlaceOrderButton ->> TransientState: update the database with users choices
