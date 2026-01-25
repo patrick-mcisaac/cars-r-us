@@ -34,7 +34,7 @@ export const updateState = async () => {
 		transientState.technologyId > 0 &&
 		transientState.wheelId > 0
 	) {
-		await fetch("http://localhost:8088/orders", {
+		await fetch("http://localhost:5267/orders", {
 			method: "POST",
 			headers: {
 				"Content-Type": "application/json"
@@ -54,7 +54,7 @@ export const updateState = async () => {
 
 // patch current DB with carType = 1 for default
 const patchState = async id => {
-	await fetch(`http://localhost:8088/orders/${id}`, {
+	await fetch(`http://localhost:5267/orders/${id}`, {
 		method: "PATCH",
 		headers: {
 			"Content-Type": "application/json"
@@ -64,7 +64,7 @@ const patchState = async id => {
 }
 
 export const getOrdersData = async () => {
-	const response = await fetch(`http://localhost:8088/orders`)
+	const response = await fetch(`http://localhost:5267/orders`)
 	const orders = await response.json()
 
 	for (const order of orders) {

@@ -1,32 +1,34 @@
 import { setWheel } from "./TransientState.js"
 
 export const Wheels = async () => {
-    const response = await fetch('http://localhost:8088/wheels')
-    const wheels = await response.json()
+	const response = await fetch("http://localhost:5267/wheels")
+	const wheels = await response.json()
 
-    document.addEventListener('change', eventHandler)
+	document.addEventListener("change", eventHandler)
 
-    let html = `
+	let html = `
     <select id='wheels-options'>
         <option value='0'>Select wheels</option>
     `
 
-    const wheelsHTML = wheels.map((wheel) => {
-        return `
-            <option value='${wheel.id}'>${wheel.name}</option>
+	const wheelsHTML = wheels
+		.map(wheel => {
+			return `
+            <option value='${wheel.id}'>${wheel.style}</option>
         `
-    }).join('')
+		})
+		.join("")
 
-    html += `
+	html += `
         ${wheelsHTML}
     </select>
     `
 
-    return html
+	return html
 }
 
-const eventHandler = (e) => {
-    if(e.target.id === 'wheels-options'){
-        setWheel(parseInt(e.target.value))
-    }
+const eventHandler = e => {
+	if (e.target.id === "wheels-options") {
+		setWheel(parseInt(e.target.value))
+	}
 }

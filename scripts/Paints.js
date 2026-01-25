@@ -1,31 +1,33 @@
 import { setPaintColor } from "./TransientState.js"
 
 export const Paints = async () => {
-    const response = await fetch('http://localhost:8088/paintColors')
-    const paints = await response.json()
+	const response = await fetch("http://localhost:5267/paintColors")
+	const paints = await response.json()
 
-    document.addEventListener('change', eventHandler)
+	document.addEventListener("change", eventHandler)
 
-    let html = `
+	let html = `
     <select id='paint-options'>
         <option value='0'>Select Paint Color</option>
     `
 
-    const paintsHTML = paints.map((paint) => {
-        return `
+	const paintsHTML = paints
+		.map(paint => {
+			return `
         <option value='${paint.id}'>${paint.color}</option>
         `
-    }).join('')
+		})
+		.join("")
 
-    html += `
+	html += `
     ${paintsHTML}
     </select>
     `
-    return html
+	return html
 }
 
-const eventHandler = (e) => {
-    if(e.target.id === 'paint-options'){
-        setPaintColor(parseInt(e.target.value))
-    }
+const eventHandler = e => {
+	if (e.target.id === "paint-options") {
+		setPaintColor(parseInt(e.target.value))
+	}
 }
